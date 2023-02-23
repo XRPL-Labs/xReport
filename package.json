@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build --base=/xReport/dist",
+    "buildLocal": "tsc && vite build && npm run preview",
     "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ufo": "^1.1.0"
+    "ufo": "^1.1.0",
+    "xumm-sdk": "^1.1.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

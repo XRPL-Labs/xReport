@@ -27,7 +27,7 @@ export default function Form(props: any) {
     }
 
     return (
-        <div className="w-full relative flex flex-col pb-16 h-full border-t mt-2 overflow-y-scroll">
+        <div className="w-full relative flex flex-col pb-16 h-full mt-2 overflow-y-scroll">
             <form id="xReport" onSubmit={(e) => handleSubmit(e)} className="flex items-center flex-col">
                 <input type="hidden" name="reason" value={reason} />
                 <input type="hidden" name="explanation" value={explanation} />
