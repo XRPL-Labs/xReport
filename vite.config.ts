@@ -6,7 +6,7 @@ import { terminalPlugin } from './src/terminalPlugin'
 export default defineConfig({
   plugins: [react(), terminalPlugin()],
   server: {
-    port: 3000
+    port: 3010
   },
   preview: {
     port: 3000
