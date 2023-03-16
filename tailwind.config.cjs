@@ -11,7 +11,7 @@ module.exports = {
       },
       colors: {
         xAppBlue: {
-          100: '#F3F5FF',
+          100: '#F8FAFD',
           900: '#0030CF'
         },
         xAppOrange: {
@@ -26,6 +26,9 @@ module.exports = {
           100: '#FFF5F5',
           900: '#EB5757'
         },
+        grey: 'rgba(96,104,133,1)',
+        silver: 'rgba(172, 177, 193, 1)',
+        lightGrey: 'rgb(235, 236, 238)',
       }
     },
     plugins: [require('tailwind-scrollbar-hide')],
