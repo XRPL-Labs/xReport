@@ -106,7 +106,7 @@ export default function Form(props: any) {
                         {stepCount === 0 &&
                             <div className="relative">
                                 <p className="text-grey">What's the primary reason you want to revoke the access for this xApp?</p>
-                                <div onClick={() => setShowOptionQuestionOne(!showOptionQuestionOne)} className={`w-full border-silver border pl-[23px] py-[16px] pr-[23px] rounded-[15px] flex justify-between items-center bg-white mt-3`}>
+                                <div onClick={() => setShowOptionQuestionOne(!showOptionQuestionOne)} className={`w-full border-silver border pl-[23px] py-[16px] pr-[23px] rounded-[15px] flex justify-between items-center bg-white mt-3 ${reasonFull === 'Select an option' ? 'h-[55px]' : ''}`}>
                                     <p className={`${reasonFull === 'Select an option' ? 'text-grey' : 'text-black font-semibold'} `}>{reasonFull}</p>
                                     <img src={iconChevronDown} className="w-[13px]" />
                                 </div>
