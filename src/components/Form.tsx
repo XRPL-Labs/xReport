@@ -106,10 +106,10 @@ export default function Form(props: any) {
                         {stepCount === 0 &&
                             <div className="relative">
                                 <p className="text-grey">What's the primary reason you want to revoke the access for this xApp?</p>
-                                <div onClick={() => setShowOptionQuestionOne(!showOptionQuestionOne)} className={`w-full border-silver border pl-[23px] py-[16px] pr-[23px] rounded-[15px] flex justify-between items-center bg-white mt-3 ${reasonFull === 'Select an option' ? 'h-[55px]' : ''}`}>
-                                    <p className={`${reasonFull === 'Select an option' ? 'text-grey ' : 'text-black font-semibold'} pt-3`}>{reasonFull}</p>
+                                <span onClick={() => setShowOptionQuestionOne(!showOptionQuestionOne)} className={`w-full border-silver border pl-[23px] py-[16px] pr-[23px] rounded-[15px] flex justify-between items-center bg-white mt-3 ${reasonFull === 'Select an option' ? 'h-[55px]' : ''}`}>
+                                    <p className={`${reasonFull === 'Select an option' ? 'text-grey ' : 'text-black font-semibold'}`}>{reasonFull}</p>
                                     <img src={iconChevronDown} className="w-[13px]" />
-                                </div>
+                                </span>
                                 {showOptionQuestionOne &&
                                     <div className="mx-auto w-full bg-white -mt-3 rounded-b-[15px] border-silver border border-t-0 pl-[23px] py-[16px] pr-[23px]">
                                         <button onClick={() => { setReason('use'); setReasonFull(`I don't use the xApp anymore`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px]">I don't use the xApp anymore</button >
