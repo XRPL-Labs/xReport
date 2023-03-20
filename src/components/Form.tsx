@@ -45,10 +45,13 @@ export default function Form(props: any) {
         document.getElementById('scrollBox')?.classList.remove('hidden');
         // (element.target).parentElement?.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
         // (element.target).parentElement?.scrollIntoView(false);
-        const yOffset = 10;
-        const y = (element.target).getBoundingClientRect().top + window.pageYOffset + yOffset;
-        fetch(`/__log?${encodeURI(y)}`)
-        document.getElementById('xReport')?.scrollTo({ top: y, behavior: 'smooth' });
+        const yOffset = -350;
+        if (props.platform === 'ios') {
+            const y = (element.target).getBoundingClientRect().top + window.pageYOffset + yOffset;
+            document.getElementById('xReport')?.scrollTo({ top: y, behavior: 'smooth' });
+        } else {
+            (element.target).parentElement?.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
+        }
         return null;
     }
 
@@ -103,7 +106,7 @@ export default function Form(props: any) {
                         {stepCount === 0 &&
                             <div className="relative">
                                 <p className="text-grey">What's the primary reason you want to revoke the access for this xApp?</p>
-                                <div onClick={() => setShowOptionQuestionOne(!showOptionQuestionOne)} className={`w-full border-silver border pl-[23px] py-[16px] pr-[23px] rounded-[15px] flex gap-3 justify-between items-center bg-white mt-3`}>
+                                <div onClick={() => setShowOptionQuestionOne(!showOptionQuestionOne)} className={`w-full border-silver border pl-[23px] py-[16px] pr-[23px] rounded-[15px] flex justify-between items-center bg-white mt-3`}>
                                     <p className={`${reasonFull === 'Select an option' ? 'text-grey' : 'text-black font-semibold'} `}>{reasonFull}</p>
                                     <img src={iconChevronDown} className="w-[13px]" />
                                 </div>
@@ -162,7 +165,7 @@ export default function Form(props: any) {
                             </div>
                         }
                     </div >
-                    <div id="scrollBox" className="min-h-[100px] hidden"></div>
+                    <div id="scrollBox" className="min-h-[300px] hidden"></div>
                 </>
             }
             <div className="fixed bottom-0 w-screen h-[109px] border-t border-lightGrey left-0 flex items-start pl-[20px] pr-[22px] pt-[17px] z-20 bg-xAppBlue-100">
