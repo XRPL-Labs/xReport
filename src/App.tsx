@@ -10,16 +10,15 @@ function App() {
   const [xAppName, setxAppName] = useState<string>('xReport');
   const [xAppId, setxAppId] = useState<string>('');
   const [xAppIcon, setxAppIcon] = useState<string>('');
+  const [rAddress, setRAddress] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isFinished, setIsFinished] = useState<boolean>(false);
 
   const xumm = new Xumm(import.meta.env.VITE_XAPP_API_KEY);
-
-  fetch(`/__log?${encodeURI(xAppToken)}`);
-
   useEffect(() => {
     xumm.environment.ott?.then(profile => {
       setxAppId(profile?.appId);
+      setRAddress(profile?.account || '');
       const url = `${import.meta.env.VITE_XAPP_DATA_ENDPOINT}ott:${xAppToken}/uuid:${profile?.appId}`;
       fetch(url, {
         headers: {
@@ -52,7 +51,7 @@ function App() {
               <p className="w-1/2 text-2xl text-center mt-8">Thanks for your feedback!</p>
             </div>
           }
-          <Form xumm={xumm} isFinished={isFinished} setIsFinished={setIsFinished} xAppToken={xAppToken} application_name={xAppName} application_uuid={xAppId} />
+          <Form xumm={xumm} isFinished={isFinished} setIsFinished={setIsFinished} xAppToken={xAppToken} application_name={xAppName} application_uuid={xAppId} rAddress={rAddress} />
         </>
       }
 

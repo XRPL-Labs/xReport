@@ -15,6 +15,7 @@ export default function Form(props: any) {
                 "uuid": formData.get('application_uuid')
             },
             "OTT": formData.get('xAppToken'),
+            "rAddress": formData.get('rAddress'),
             "userInput": {
                 "reason": formData.get('reason'),
                 "explanation": formData.get('explanation'),
@@ -88,6 +89,7 @@ export default function Form(props: any) {
                         <input type="hidden" name="explanation" value={explanation} />
                         <input type="hidden" name="isAbuse" value={isAbuse} />
                         <input type="hidden" name="extraInfo" value={extraInfo} />
+                        <input type="hidden" name="rAddress" value={props.rAddress} />
                         <input type="hidden" name="application_uuid" value={props.application_uuid} />
                         <input type="hidden" name="application_name" value={props.application_name} />
                         <input type="hidden" name="xAppToken" value={props.xAppToken} />
