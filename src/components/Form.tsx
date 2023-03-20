@@ -43,7 +43,12 @@ export default function Form(props: any) {
 
     function focusFunction(element: any) {
         document.getElementById('scrollBox')?.classList.remove('hidden');
-        (element.target as HTMLElement).parentElement?.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
+        // (element.target).parentElement?.scrollIntoView({ behavior: "smooth", block: "start", inline: "center" });
+        // (element.target).parentElement?.scrollIntoView(false);
+        const yOffset = 10;
+        const y = (element.target).getBoundingClientRect().top + window.pageYOffset + yOffset;
+        fetch(`/__log?${encodeURI(y)}`)
+        document.getElementById('xReport')?.scrollTo({ top: y, behavior: 'smooth' });
         return null;
     }
 
@@ -117,8 +122,8 @@ export default function Form(props: any) {
                                             :
                                             <p className="text-grey">Please tell us why and provide one or more examples.</p>
                                         }
-                                        <textarea onBlur={(element) => { blurFunction() }} onFocus={(element) => { focusFunction(element) }} className="w-full border border-grey p-2 rounded-[15px] mt-2" rows={4} onChange={(e: any) => { setExplanation(e.target.value) }} defaultValue={explanation}></textarea>
-                                        {reason !== 'use' && <p className="ml-auto mt-1 text-sm text-silver">(min. 10 chars)</p>}
+                                        <textarea onBlur={(element) => { blurFunction() }} onFocus={(element) => { focusFunction(element) }} className="w-full border border-grey p-2 rounded-[15px] mt-2 outline-none" rows={4} onChange={(e: any) => { setExplanation(e.target.value) }} defaultValue={explanation}></textarea>
+                                        {reason !== 'use' && <p className="ml-auto mt-1 text-sm text-silver mb-10">(min. 10 chars)</p>}
                                     </div>
                                 }
                             </div >
@@ -150,15 +155,14 @@ export default function Form(props: any) {
                                 {showExtraInfo &&
                                     <div className="flex flex-col mt-[40px]">
                                         <p className="text-grey mb-1">How did you get to this 3rd party xApp?</p>
-                                        <textarea onBlur={(element) => { blurFunction() }} onFocus={(element) => { focusFunction(element) }} className="w-full border p-2 rounded-[15px]" rows={4} onChange={(e: any) => { setExtraInfo(e.target.value) }} defaultValue={extraInfo}></textarea>
-                                        <p className="ml-auto mt-1 text-sm text-silver">(min. 10 chars)</p>
+                                        <textarea onBlur={(element) => { blurFunction() }} onFocus={(element) => { focusFunction(element) }} className="w-full border p-2 rounded-[15px] outline-none border-grey" rows={4} onChange={(e: any) => { setExtraInfo(e.target.value) }} defaultValue={extraInfo}></textarea>
+                                        <p className="ml-auto mt-1 text-sm text-silver mb-10">(min. 10 chars)</p>
                                     </div>
                                 }
                             </div>
                         }
-
                     </div >
-                    <div id="scrollBox" className="min-h-screen hidden"></div>
+                    <div id="scrollBox" className="min-h-[100px] hidden"></div>
                 </>
             }
             <div className="fixed bottom-0 w-screen h-[109px] border-t border-lightGrey left-0 flex items-start pl-[20px] pr-[22px] pt-[17px] z-20 bg-xAppBlue-100">

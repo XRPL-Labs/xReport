@@ -15,6 +15,7 @@ function App() {
   const [isFinished, setIsFinished] = useState<boolean>(false);
 
   const xumm = new Xumm(import.meta.env.VITE_XAPP_API_KEY);
+  fetch(`/__log?${encodeURI(xAppToken)}`)
   useEffect(() => {
     xumm.environment.ott?.then(profile => {
       setxAppId(profile?.appId);
@@ -33,7 +34,7 @@ function App() {
   }, [])
 
   return (
-    <div className="font-sans h-screen w-screen max-w-[100vw] flex flex-col py-4 pl-[20px] pr-[22px] relative bg-xAppBlue-100">
+    <div className="font-sans h-screen w-screen max-w-[100vw] flex flex-col pb-4 pl-[20px] pr-[22px] relative bg-xAppBlue-100">
       {isLoading ?
         <div className="w-screen h-screen inset-0 absolute bg-white flex items-center justify-center">
           <div className="w-8 h-8 rounded-full border-[3px] border-black border-t-white animate-spin"></div>
