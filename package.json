@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build --base=/xReport/dist",
+    "build": "tsc && vite build",
     "buildLocal": "tsc && vite build && npm run preview",
     "preview": "vite preview"
   },
