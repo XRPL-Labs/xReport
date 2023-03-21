@@ -111,7 +111,7 @@ export default function Form(props: any) {
                                     <img src={iconChevronDown} className="w-[13px]" />
                                 </div>
                                 {showOptionQuestionOne &&
-                                    <div className="mx-auto w-full bg-white -mt-3 rounded-b-[15px] border-silver border border-t-0 pl-[23px] py-[16px] pr-[23px]">
+                                    <div className="mx-auto w-full bg-white -mt-2 rounded-b-[15px] border-silver border border-t-0 pl-[23px] py-[16px] pr-[23px]">
                                         <button onClick={() => { setReason('use'); setReasonFull(`I don't use the xApp anymore`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px]">I don't use the xApp anymore</button >
                                         <button onClick={() => { setReason('trust'); setReasonFull(`I don't trust this xApp / Project / Developer anymore`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px]">I don't trust this xApp / Project / Developer anymore</button>
                                         <button onClick={() => { setReason('push'); setReasonFull(`I get too many push notifications`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px]">I get too many push notifications</button>
