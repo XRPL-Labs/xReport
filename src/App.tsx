@@ -5,6 +5,7 @@ import Form from './components/Form';
 
 const searchParams = new URL(window.location.href).searchParams;
 const xAppToken = searchParams.get('xAppToken') || '';
+const style = searchParams.get('xAppStyle');
 
 function App() {
   const [xAppName, setxAppName] = useState<string>('xReport');
@@ -37,7 +38,7 @@ function App() {
   }, [])
 
   return (
-    <div className="font-sans h-screen w-screen max-w-[100vw] flex flex-col pb-4 pl-[20px] pr-[22px] relative bg-xAppBlue-100">
+    <div className={`font-sans h-screen w-screen max-w-[100vw] flex flex-col pb-4 pl-[20px] pr-[22px] relative bg-xAppBlue-100 dark:bg-stone-900`}>
       {isLoading ?
         <div className="w-screen h-screen inset-0 absolute bg-white flex items-center justify-center">
           <div className="w-8 h-8 rounded-full border-[3px] border-black border-t-white animate-spin"></div>
@@ -50,9 +51,9 @@ function App() {
               <h1 className="font-bold text-xl">You want to revoke access for {xAppName}</h1>
             </div>
             :
-            <div className="h-full w-screen bg-white flex-1 absolute z-10 inset-0 flex items-center justify-center flex-col">
-              <p className="text-4xl font-extrabold">You're awesome!</p>
-              <p className="w-1/2 text-2xl text-center mt-8">Thanks for your feedback!</p>
+            <div className="h-full w-screen bg-transparent dark:bg-stone-900 flex-1 absolute z-10 inset-0 flex items-center justify-center flex-col">
+              <p className="text-4xl font-extrabold -mt-[109px] dark:text-white">You're awesome!</p>
+              <p className="w-1/2 text-2xl text-center mt-8 dark:text-white">Thanks for your feedback!</p>
             </div>
           }
           <Form platform={platform} xumm={xumm} isFinished={isFinished} setIsFinished={setIsFinished} xAppToken={xAppToken} application_name={xAppName} application_uuid={xAppId} rAddress={rAddress} />

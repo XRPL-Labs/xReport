@@ -13,6 +13,7 @@ export function terminalPlugin(): Plugin {
             server.middlewares.use('/__log', (req: any, res) => {
                 const { pathname, search } = parseURL(req?.url);
                 console.log(pc.magenta(`  » ${decodeURI(search.slice(1))}`));
+                console.log(pc.magenta(`  » ${req?.url}`));
                 res.end();
             });
         },

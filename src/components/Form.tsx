@@ -105,28 +105,28 @@ export default function Form(props: any) {
                     <div className="w-full">
                         {stepCount === 0 &&
                             <div className="relative">
-                                <p className="text-grey">What's the primary reason you want to revoke the access for this xApp?</p>
+                                <p className="text-grey dark: text-gray-200">What's the primary reason you want to revoke the access for this xApp?</p>
                                 <div onClick={() => setShowOptionQuestionOne(!showOptionQuestionOne)} className={`w-full border-silver border pl-[23px] py-[16px] pr-[23px] rounded-[15px] flex justify-between items-center bg-white mt-3 ${reasonFull === 'Select an option' ? 'h-[55px]' : ''}`}>
                                     <p className={`${reasonFull === 'Select an option' ? 'text-grey ' : 'text-black font-semibold'} mb-0`}>{reasonFull}</p>
                                     <img src={iconChevronDown} className="w-[13px]" />
                                 </div>
                                 {showOptionQuestionOne &&
-                                    <div className="mx-auto w-full bg-white -mt-2 rounded-b-[15px] border-silver border border-t-0 pl-[23px] py-[16px] pr-[23px]">
-                                        <button onClick={() => { setReason('use'); setReasonFull(`I don't use the xApp anymore`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px]">I don't use the xApp anymore</button >
-                                        <button onClick={() => { setReason('trust'); setReasonFull(`I don't trust this xApp / Project / Developer anymore`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px]">I don't trust this xApp / Project / Developer anymore</button>
-                                        <button onClick={() => { setReason('push'); setReasonFull(`I get too many push notifications`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px]">I get too many push notifications</button>
+                                    <div className="mx-auto w-full bg-white -mt-2 rounded-b-[15px] border-silver border border-t-0 pl-[23px] py-[16px] pr-[23px] dark:text-stone-900">
+                                        <button onClick={() => { setReason('use'); setReasonFull(`I don't use the xApp anymore`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px] dark:text-stone-900">I don't use the xApp anymore</button >
+                                        <button onClick={() => { setReason('trust'); setReasonFull(`I don't trust this xApp / Project / Developer anymore`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px] dark:text-stone-900">I don't trust this xApp / Project / Developer anymore</button>
+                                        <button onClick={() => { setReason('push'); setReasonFull(`I get too many push notifications`); setShowOptionQuestionOne(!showOptionQuestionOne) }} className="text-left my-2 first:mt-0 last:mb-0 active:font-bold focus:font-bold focus:outline-none rounded-[15px] dark:text-stone-900">I get too many push notifications</button>
                                     </div >
                                 }
                                 {
                                     reasonFull !== 'Select an option' &&
                                     <div className="mt-[46px] w-full flex flex-col">
                                         {reason === 'use' ?
-                                            <p className="text-grey">Would you like to explain your answer a little more?</p>
+                                            <p className="text-grey dark: text-gray-200">Would you like to explain your answer a little more?</p>
                                             :
-                                            <p className="text-grey">Please tell us why and provide one or more examples.</p>
+                                            <p className="text-grey dark: text-gray-200">Please tell us why and provide one or more examples.</p>
                                         }
-                                        <textarea onBlur={(element) => { blurFunction() }} onFocus={(element) => { focusFunction(element) }} className="w-full border border-grey p-2 rounded-[15px] mt-2 outline-none" rows={4} onChange={(e: any) => { setExplanation(e.target.value) }} defaultValue={explanation}></textarea>
-                                        {reason !== 'use' && <p className="ml-auto mt-1 text-sm text-silver mb-10">(min. 10 chars)</p>}
+                                        <textarea onBlur={(element) => { blurFunction() }} onFocus={(element) => { focusFunction(element) }} className="w-full border border-grey p-2 rounded-[15px] mt-2 outline-none dark:text-stone-900" rows={4} onChange={(e: any) => { setExplanation(e.target.value) }} defaultValue={explanation}></textarea>
+                                        {reason !== 'use' && <p className="ml-auto mt-1 text-sm text-silver mb-10 dark:text-white">(min. 10 chars)</p>}
                                     </div>
                                 }
                             </div >
@@ -136,7 +136,7 @@ export default function Form(props: any) {
                         {
                             stepCount > 0 &&
                             <div className="w-full">
-                                <p className="text-grey">Does this 3rd party xApp bother or endanger it's users in your opinion?</p>
+                                <p className="text-grey dark: text-gray-200">Does this 3rd party xApp bother or endanger it's users in your opinion?</p>
                                 <div className="flex gap-8 mt-3">
                                     <div onClick={() => { setIsAbuse('Yes') }} className="flex gap-2">
                                         <span className={`w-[20px] h-[20px] flex items-center justify-center rounded-full bg-white border ${isAbuse === 'Yes' ? '!border-black' : 'border-silver'}`}>
@@ -144,7 +144,7 @@ export default function Form(props: any) {
                                                 <span className="w-[14px] h-[14px] bg-black rounded-full"></span>
                                             }
                                         </span>
-                                        <p className={`${isAbuse === 'Yes' ? 'text-black font-semibold' : 'text-grey'}`}>Yes</p>
+                                        <p className={`${isAbuse === 'Yes' ? 'text-black dark:text-white font-semibold' : 'text-grey dark:text-gray-200'}`}>Yes</p>
                                     </div>
                                     <div onClick={() => { setIsAbuse('No') }} className="flex gap-2">
                                         <span className={`w-[20px] h-[20px] flex items-center justify-center rounded-full bg-white border ${isAbuse === 'No' ? '!border-black' : 'border-silver'}`}>
@@ -152,14 +152,14 @@ export default function Form(props: any) {
                                                 <span className="w-[14px] h-[14px] bg-black rounded-full"></span>
                                             }
                                         </span>
-                                        <p className={`${isAbuse === 'No' ? 'text-black font-semibold' : 'text-grey'}`}>No</p>
+                                        <p className={`${isAbuse === 'No' ? 'text-black dark:text-white font-semibold' : 'text-grey dark:text-gray-200'}`}>No</p>
                                     </div>
                                 </div>
                                 {showExtraInfo &&
                                     <div className="flex flex-col mt-[40px]">
-                                        <p className="text-grey mb-1">How did you get to this 3rd party xApp?</p>
-                                        <textarea onBlur={(element) => { blurFunction() }} onFocus={(element) => { focusFunction(element) }} className="w-full border p-2 rounded-[15px] outline-none border-grey" rows={4} onChange={(e: any) => { setExtraInfo(e.target.value) }} defaultValue={extraInfo}></textarea>
-                                        <p className="ml-auto mt-1 text-sm text-silver mb-10">(min. 10 chars)</p>
+                                        <p className="text-grey dark:text-gray-200 mb-1">How did you get to this 3rd party xApp?</p>
+                                        <textarea onBlur={(element) => { blurFunction() }} onFocus={(element) => { focusFunction(element) }} className="w-full border p-2 rounded-[15px] outline-none border-grey dark:text-stone-900" rows={4} onChange={(e: any) => { setExtraInfo(e.target.value) }} defaultValue={extraInfo}></textarea>
+                                        <p className="ml-auto mt-1 text-sm text-silver mb-10 dark:text-white">(min. 10 chars)</p>
                                     </div>
                                 }
                             </div>
@@ -168,7 +168,7 @@ export default function Form(props: any) {
                     <div id="scrollBox" className="min-h-[300px] hidden"></div>
                 </>
             }
-            <div className="fixed bottom-0 w-screen h-[109px] border-t border-lightGrey left-0 flex items-start pl-[20px] pr-[22px] pt-[17px] z-20 bg-xAppBlue-100">
+            <div className="fixed bottom-0 w-screen h-[109px] border-t border-lightGrey dark:border-stone-700 left-0 flex items-start pl-[20px] pr-[22px] pt-[17px] z-20 bg-xAppBlue-100 dark:bg-stone-900">
                 {props.isFinished ?
                     <span onClick={() => { props.xumm.xapp.close() }} className={`font-bold text-white bg-xAppBlue-900 w-full rounded-[15px] py-[12px] leading-9 text-center block`}>Quit xApp</span>
                     :
