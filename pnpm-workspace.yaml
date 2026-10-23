@@ -1,0 +1,8 @@
+# Only esbuild may run install scripts (it fetches its binary). The others have JS fallbacks.
+allowBuilds:
+  bufferutil: false
+  es5-ext: false
+  esbuild: true
+  utf-8-validate: false
+# Refuse package versions published less than 7 days ago (value is in minutes).
+minimumReleaseAge: 10080
